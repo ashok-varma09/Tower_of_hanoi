@@ -9,10 +9,6 @@ public class Tower : MonoBehaviour
     public Transform[] position;
 
     
-    private void OnMouseDown()
-    {
-        gm.Towerclick(this);   
-        
-    }
+
 
 }
