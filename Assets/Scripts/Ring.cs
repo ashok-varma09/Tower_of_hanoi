@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using DG.Tweening;
 
@@ -16,18 +15,22 @@ public class Ring : MonoBehaviour
 
     void Start()
     {
-        gm = FindObjectOfType<GameManager>();
+        gm = FindFirstObjectByType<GameManager>();
     }
 
     void OnMouseDown()
     {
+        Debug.Log("Mouse Down on: " + gameObject.name);
         if (gm != null && (gm.Isanimate || !gm.IsGameStart)) return;
 
         currentTower = transform.parent.GetComponent<Tower>();
+        Debug.Log("Current Tower: " + currentTower.gameObject.name);
+        Debug.Log("Current Tower ringstack count : " + currentTower.Ringstack.Count);
 
         // Only allow dragging the top ring
         if (currentTower != null && currentTower.Ringstack.Count > 0 && currentTower.Ringstack.Peek() == this)
         {
+            Debug.Log("Starting to drag: " + gameObject.name);
             isDragging = true;
             originalPos = transform.position;
 
@@ -60,11 +63,14 @@ public class Ring : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = true;
 
             // Find target tower using raycast
-            Tower targetTower = null;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit[] hits = Physics.RaycastAll(ray);
+           Tower targetTower = null;
+            // Convert mouse position to a 2D point in the world
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            foreach (RaycastHit hit in hits)
+            // Shoot a "point" check or a ray into the 2D plane
+            RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos, Vector2.zero);
+
+            foreach (RaycastHit2D hit in hits)
             {
                 Tower t = hit.collider.GetComponent<Tower>();
                 if (t != null && t != currentTower)
@@ -100,14 +106,14 @@ public class Ring : MonoBehaviour
                     // Update game state
                     gm.Moves--;
                     gm.MoveText.text = gm.Moves.ToString();
-                    SoundManager.instance.PlaySfx("Click");
+                    // SoundManager.instance.PlaySfx("Click");
 
                     // Win check
-                    if (gm.WinTower.Ringstack.Count == gm.rings.Length)
+                    if (gm.WinTower.Ringstack.Count == gm.rings.Count)
                     {
                         gm.IsGameStart = false;
                         gm.Gamewin.SetActive(true);
-                        SoundManager.instance.PlaySfx("Win");
+                        // SoundManager.instance.PlaySfx("Win");
                     }
 
                     Debug.Log("Ring moved to: " + targetTower.gameObject.name);
@@ -116,7 +122,7 @@ public class Ring : MonoBehaviour
                 {
                     // Invalid move - return to original position
                     transform.DOMove(originalPos, 0.3f);
-                    SoundManager.instance.PlaySfx("Error");
+                    // SoundManager.instance.PlaySfx("Error");
                     Debug.Log("Invalid Move!");
                 }
             }

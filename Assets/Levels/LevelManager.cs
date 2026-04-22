@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour
     public LevelConfigurationSO GetCurrentLevelConfig()
     {
         // return levels.FirstOrDefault(l => l.levelID == currentLevelID);
-        return levels.FirstOrDefault(x => x.levelID == currentLevelID);
+        // return levels.FirstOrDefault(x => x.levelID == currentLevelID);
+        return levels[0];
     }
 }

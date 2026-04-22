@@ -15,7 +15,15 @@ MonoBehaviour:
   levelID: 1
   levelName: 
   ringCount: 3
+  towerCount: 5
   maxMoves: 7
   timeLimit: 60
-  ringColors: []
+  Ringparentindex: 000000000000000000000000
+  tower1ringcount: 0
+  tower2ringcount: 0
+  tower3ringcount: 0
+  ringColors:
+  - {r: 0.1882353, g: 0.63529414, b: 0.16470589, a: 1}
+  - {r: 0.6509804, g: 0.654902, b: 0.65882355, a: 1}
+  - {r: 0.7921569, g: 0.4, b: 0.22745098, a: 1}
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}

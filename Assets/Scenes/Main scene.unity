@@ -209,57 +209,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &189405973
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 189405975}
-  - component: {fileID: 189405974}
-  m_Layer: 0
-  m_Name: Admanager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &189405974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189405973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb13c7963db2e584e87cee28a57d8835, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TestBannerid: ca-app-pub-3940256099942544/6300978111
-  ProductionBannerId: ca-app-pub-6163494406704148/8294033735
-  TestIntertitialid: ca-app-pub-3940256099942544/1033173712
-  ProductionIntertitialId: ca-app-pub-3940256099942544/1033173712
-  TestRewardid: ca-app-pub-3940256099942544/5224354917
-  ProductionRewardId: ca-app-pub-3940256099942544/5224354917
-  IsTesting: 1
---- !u!4 &189405975
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189405973}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1197.709, y: 455.38556, z: 1.0622835}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &254211567
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +512,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -4037,6 +3986,5 @@ SceneRoots:
   - {fileID: 254211571}
   - {fileID: 390377145}
   - {fileID: 1126201598}
-  - {fileID: 189405975}
   - {fileID: 615959005}
   - {fileID: 1656683163}
